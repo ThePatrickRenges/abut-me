@@ -5,123 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About Me · Bewerbungsseite</title>
   <meta name="description" content="About Me · Open Source · IT Development · Coding · Web · Unix · Linux Terminal" />
-  <style>
-    :root{
-      --bg:#0b0f14; --card:#121821; --muted:#9fb0c3; --fg:#e8f0f7; --acc:#4aa3ff; --ok:#2dd4bf; --err:#ff7373;
-      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
-      --border:1px solid rgba(255,255,255,.06);
-      --maxw:1100px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
-      color:var(--fg);
-      background:
-        radial-gradient(1200px 800px at 80% -10%, #19324d 0%, transparent 60%),
-        linear-gradient(180deg,#0b0f14,#0b0f14 60%);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--acc);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 64px}
-
-    /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:10;
-      background:linear-gradient(180deg, rgba(11,15,20,.9), rgba(11,15,20,.6));
-      backdrop-filter: blur(10px);
-      border-bottom:var(--border);
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      max-width:var(--maxw);margin:0 auto;padding:12px 18px;
-    }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
-    .brand-badge{
-      width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
-      background:linear-gradient(135deg,#1b2940,#0f1723);
-      border:var(--border); box-shadow:var(--shadow);
-      font-size:12px;color:var(--ok)
-    }
-    nav ul{display:flex;gap:14px;list-style:none}
-    nav a{
-      padding:8px 12px;border-radius:10px;border:var(--border);background:rgba(255,255,255,.02)
-    }
-    nav a:hover{background:rgba(255,255,255,.05)}
-
-    /* Hero */
-    .hero{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin-top:34px
-    }
-    .card{
-      background:var(--card);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow)
-    }
-    .hero .left{padding:28px}
-    .eyebrow{font-size:.85rem;color:var(--muted);letter-spacing:.2px;margin-bottom:8px}
-    .title{font-size:clamp(28px,4.5vw,44px);line-height:1.15;font-weight:800;margin-bottom:10px}
-    .subtitle{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px}
-    .tag{
-      border:var(--border);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px;
-      font-size:.85rem;white-space:nowrap
-    }
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:12px;border:var(--border);background:rgba(255,255,255,.04);
-      font-weight:600
-    }
-    .btn.primary{background:linear-gradient(180deg,#4aa3ff,#3386dd); color:#06182b;border:1px solid rgba(0,0,0,.15)}
-    .btn:hover{filter:brightness(1.05)}
-    .btn:active{transform:translateY(1px)}
-
-    .hero .right{
-      display:grid;place-items:center;padding:18px
-    }
-    .avatar{
-      width:min(360px,90%);aspect-ratio:1/1;border-radius:18px;border:var(--border);
-      background:
-        radial-gradient(300px 200px at 70% 0%, rgba(74,163,255,.25), transparent 60%),
-        linear-gradient(135deg,#0f1723,#0b0f14 60%);
-      display:grid;place-items:center;position:relative;overflow:hidden
-    }
-    .avatar svg{width:65%;opacity:.8}
-
-    /* Sections */
-    section{margin-top:34px}
-    .section-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
-    .section-head h2{font-size:1.35rem}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid .card{padding:18px}
-    .kicker{font-size:.8rem;color:var(--muted);margin-bottom:6px}
-    .item-title{font-weight:700;margin-bottom:6px}
-    .item-text{color:var(--muted);font-size:.95rem}
-
-    /* Timeline */
-    .timeline{display:grid;gap:12px}
-    .entry{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);margin-top:8px;box-shadow:0 0 0 4px rgba(45,212,191,.12)}
-    .entry .card{padding:14px}
-
-    /* Footer */
-    footer{margin:26px auto 0;max-width:var(--maxw);padding:20px 18px;color:var(--muted);border-top:var(--border)}
-    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-    .muted{color:var(--muted)}
-    .inline-links{display:flex;gap:12px;flex-wrap:wrap}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;gap:16px}
-      nav ul{display:none}
-      .grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:640px){
-      .wrap{padding:22px 14px 56px}
-      .grid{grid-template-columns:1fr}
-      .btn{width:100%;justify-content:center}
-    }
-  </style>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -147,9 +32,9 @@
     <section id="profil" class="hero">
       <div class="left card">
         <div class="eyebrow">Open Source · IT Development · Coding · Web · Unix · Linux Terminal</div>
-        <h1 class="title">[Dein Name] · Open-Source Entwickler</h1>
+        <h1 class="title">Patrick · Open-Source Entwickler</h1>
         <p class="subtitle">
-          Kurzprofil: <strong>[1-2 Sätze über dich]</strong> – Fokus auf Open-Source,
+          <strong>Ich Liebe nachaltige technick von Menschen für Menschen</strong> – Fokus auf Open-Source,
           schlanke Web-Stacks, saubere Unix-Workflows und pragmatische Lösungen.
           Leidenschaft für Linux, Terminal-Tools und klare, wartbare Codebasen.
         </p>
@@ -173,23 +58,36 @@
         </div>
       </div>
 
+      <!-- Profilbild -->
       <div class="right">
-        <!-- Platzhalter-Avatar (SVG) -->
-        <div class="avatar card" aria-label="Profilbild Platzhalter">
-          <svg viewBox="0 0 256 256" role="img" aria-label="Avatar">
-            <defs>
-              <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#4aa3ff" stop-opacity=".8"/>
-                <stop offset="1" stop-color="#2dd4bf" stop-opacity=".6"/>
-              </linearGradient>
-            </defs>
-            <circle cx="128" cy="96" r="48" fill="url(#g)"/>
-            <rect x="36" y="160" width="184" height="72" rx="24" fill="url(#g)" opacity=".5"/>
-          </svg>
+        <div class="avatar card" aria-label="Profilbild">
+          <img src="img/IMG_2031.JPEG" alt="Profilbild" class="avatar-img">
+          <div class="inline-links">
+            <a href="[GitHub-Link]" target="_blank">
+              <i class="fa fa-github"></i> GitHub
+            </a>
+            <a href="[LinkedIn-oder-Alternative]" target="_blank">
+              <i class="fa fa-linkedin"></i> Profil
+            </a>
+            <a href="[Impressum-oder-Infos]" target="_blank">
+              <i class="fa fa-info-circle"></i> Infos
+            </a>
+          </div>
         </div>
       </div>
-    </section>
-
+  
+      <!-- Buttons unterhalb des Bilds -->
+  <div class="social-buttons" style="position: static; margin-top: 16px;">
+    <a href="https://github.com/ThePatrickRenges" target="_blank" class="btn github" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://www.youtube.com/@LinuxUnixFOSSGamingIT" target="_blank" class="btn youtube" aria-label="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
+</div>
+    </section> 
+    
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-head">
@@ -219,7 +117,7 @@
     <section id="projekte">
       <div class="section-head">
         <h2>Ausgewählte Projekte</h2>
-        <a class="muted" href="[Link-zu-mehr-Projekten]">Mehr ansehen</a>
+        <a class="muted" href="https://github.com/ThePatrickRenges">Mehr ansehen</a>
       </div>
       <div class="grid">
         <article class="card">
@@ -252,7 +150,7 @@
       </div>
     </section>
 
-    <!-- STATIONEN / TIMELINE -->
+    <!-- STATIONEN -->
     <section id="stationen">
       <div class="section-head">
         <h2>Stationen</h2>
@@ -300,21 +198,13 @@
         <a class="btn primary" href="https://thepatrickrenges.github.io/kontakt/">Zum Kontaktformular</a>
       </div>
     </section>
-  </main>
-
-  <footer>
+<footer>
     <div class="foot">
       <div class="muted">© <span id="y"></span> [Dein Name]. Offen, pragmatisch, fokussiert.</div>
-      <div class="inline-links">
-        <a href="[GitHub-Link]">GitHub</a>
-        <a href="[LinkedIn-oder-Alternative]">Profil</a>
-        <a href="[Impressum-oder-Infos]">Infos</a>
-      </div>
-    </div>
   </footer>
 
   <script>
-    // Kleines Detail: Jahr automatisch setzen und sanftes Scrollen
+    // Jahr automatisch setzen & sanftes Scrollen
     document.getElementById('y').textContent = new Date().getFullYear();
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
